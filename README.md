@@ -48,5 +48,7 @@ echo LinkPreview::widget([
         'previewActionUrl' => \yii\helpers\Url::to(['link-preview'])
     ],
 ])
-```   
+```  
+#### Example preview
+-----
 ![Alt text](http://oi62.tinypic.com/258seh1.jpg "Page Preview Example")
