@@ -1,5 +1,5 @@
 Yii2 Link Preview Widget
-==========
+===========
 
 LinkPreview widget automatically retrieves some information from the content of the link.
 
