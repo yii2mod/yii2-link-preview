@@ -25,12 +25,12 @@ to the require section of your `composer.json` file.
 
 Usage
 -----
-##### Execute init migration
+1) Execute init migration:
 ```php
        php yii migrate/up --migrationPath=@vendor/yii2mod/yii2-link-preview/migrations
 ```    
 
-##### Define preview action in your controller:
+2) Define preview action in your controller:
 ```php
        public function actions()
        {
@@ -40,7 +40,7 @@ Usage
        }
 ```     
  
-##### Add widget to your page as follows:
+3) Add widget to your page as follows:
 ```php
        echo LinkPreview::widget([
            'id' => 'your-input-id',
