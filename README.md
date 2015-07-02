@@ -49,3 +49,4 @@ echo LinkPreview::widget([
     ],
 ])
 ```   
+![Alt text](https://drive.google.com/open?id=0B-8f9Yx-nBHkSVBrRTctcnJ5TUU "Page Preview Example")
