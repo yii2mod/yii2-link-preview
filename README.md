@@ -51,4 +51,4 @@ echo LinkPreview::widget([
 ```  
 #### Example preview
 -----
-![Alt text](http://res.cloudinary.com/zfort/image/upload/v1435842547/Home_Page_gtbpo7.png "Example preview")
+![Alt text](http://res.cloudinary.com/zfort/image/upload/v1436190465/Preview.png "Example preview")
