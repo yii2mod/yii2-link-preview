@@ -19,7 +19,7 @@
         //Url regex
         urlRegex: /(https?\:\/\/|\s)[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})(\/+[a-z0-9_.\:\;-]*)*(\?[\&\%\|\+a-z0-9_=,\.\:\;-]*)?([\&\%\|\+&a-z0-9_=,\:\;\.-]*)([\!\#\/\&\%\|\+a-z0-9_=,\:\;\.-]*)}*/i,
         //Close button id
-        closeBtnId: '#close-preview',
+        closeBtnClass: '.close-preview-btn',
         //Pjax default settings
         pjaxDefaults: {
             push: false,
@@ -72,7 +72,7 @@
             }
         });
         //Event on close button click
-        $(options.pjaxContainer).on('click', options.closeBtnId, function () {
+        $(options.pjaxContainer).on('click', options.closeBtnClass, function () {
             //Clear pjax container and set isPreviewOpen to false
             $(options.pjaxContainer).html("");
             options.isPreviewOpen = false;
