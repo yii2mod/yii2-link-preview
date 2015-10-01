@@ -5,11 +5,13 @@ use yii\widgets\Pjax;
 
 /* @var $result array data from request */
 /* @var $linkPreviewModel \yii2mod\linkpreview\models\LinkPreviewModel */
+/* @var $pjaxContainerId string */
+
 ?>
 <?php Pjax::begin([
     'timeout' => 20000,
     'enablePushState' => false,
-    'id' => 'link-preview-pjax-container',
+    'id' => $pjaxContainerId,
 ]); ?>
 <?php if (!empty($result)): ?>
     <div class="preview-container">
