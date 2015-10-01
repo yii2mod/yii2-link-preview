@@ -32,9 +32,12 @@ class LinkPreviewAction extends Action
             'content' => $content
         ]);
         $result = $linkPreview->getPagePreview();
+        $pjaxContainerId = str_replace('#', '', Yii::$app->request->post('_pjax'));
+
         return $this->controller->render($this->view, [
             'result' => $result,
-            'linkPreviewModel' => $linkPreviewModel
+            'linkPreviewModel' => $linkPreviewModel,
+            'pjaxContainerId' => $pjaxContainerId
         ]);
     }
 
