@@ -43,7 +43,7 @@ public function actions()
 3) Add widget to your page as follows:
 ```php
 echo LinkPreview::widget([
-    'id' => 'your-input-id',
+    'selector' => '#your-input-id or .someclass',
     'clientOptions' => [
         'previewActionUrl' => \yii\helpers\Url::to(['link-preview'])
     ],
