@@ -27,6 +27,13 @@ class Crawler extends Object
     public $curlOptions = [];
 
     /**
+     * @var array html purifier settings
+     */
+    public $htmlPurifierSettings = [
+        'HTML.Allowed' => ''
+    ];
+
+    /**
      * @var string page url
      */
     protected $url;
@@ -198,7 +205,7 @@ class Crawler extends Object
         if (ContentHelper::isJson($description)) {
             $description = "";
         }
-        $description = HtmlPurifier::process($description);
+        $description = HtmlPurifier::process($description, $this->htmlPurifierSettings);
 
         return ContentHelper::trimText($description);
     }
