@@ -3,6 +3,8 @@ Yii2 Link Preview Widget
 
 LinkPreview widget automatically retrieves some information from the content of the link.
 
+[![Latest Stable Version](https://poser.pugx.org/yii2mod/yii2-link-preview/v/stable)](https://packagist.org/packages/yii2mod/yii2-link-preview) [![Total Downloads](https://poser.pugx.org/yii2mod/yii2-link-preview/downloads)](https://packagist.org/packages/yii2mod/yii2-link-preview) [![License](https://poser.pugx.org/yii2mod/yii2-link-preview/license)](https://packagist.org/packages/yii2mod/yii2-link-preview)
+
 Installation 
 ------------
 
