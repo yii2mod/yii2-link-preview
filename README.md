@@ -91,4 +91,4 @@ $linkPreviewId = LinkPreviewModel::saveAndGetId(Yii::$app->request->post());
 
 #### Video Link Preview Example
 -----
-![Alt text](http://res.cloudinary.com/zfort/image/upload/v1463675006/Youtube%20link%20preview.png "Video Link Preview Example")
+![Alt text](http://res.cloudinary.com/zfort/image/upload/v1463675454/Youtube%20link%20preview.png "Video Link Preview Example")
