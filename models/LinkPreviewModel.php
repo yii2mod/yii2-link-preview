@@ -4,6 +4,7 @@ namespace yii2mod\linkpreview\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii2mod\behaviors\PurifyBehavior;
 
 /**
  * This is the model class for table "LinkPreview".
@@ -14,6 +15,7 @@ use yii\db\ActiveRecord;
  * @property string $url
  * @property string $canonicalUrl
  * @property string $image
+ * @property string $code
  * @property integer $createdAt
  * @property integer $updatedAt
  */
@@ -36,7 +38,7 @@ class LinkPreviewModel extends ActiveRecord
     {
         return [
             [['url', 'canonicalUrl'], 'required'],
-            [['image', 'title', 'description'], 'string'],
+            [['image', 'title', 'description', 'code'], 'string'],
             [['createdAt', 'updatedAt'], 'integer'],
             [['url', 'canonicalUrl'], 'string', 'max' => 255]
         ];
@@ -55,6 +57,7 @@ class LinkPreviewModel extends ActiveRecord
             'url' => Yii::t('app', 'Url'),
             'canonicalUrl' => Yii::t('app', 'Canonical Url'),
             'image' => Yii::t('app', 'Image'),
+            'code' => Yii::t('app', 'Code'),
             'createdAt' => Yii::t('app', 'Created At'),
             'updatedAt' => Yii::t('app', 'Updated At'),
         ];
@@ -69,10 +72,12 @@ class LinkPreviewModel extends ActiveRecord
         return [
             'timestamp' => [
                 'class' => 'yii\behaviors\TimestampBehavior',
-                'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => ['createdAt', 'updatedAt'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updatedAt'],
-                ]
+                'createdAtAttribute' => 'createdAt',
+                'updatedAtAttribute' => 'updatedAt'
+            ],
+            'purify' => [
+                'class' => PurifyBehavior::className(),
+                'attributes' => ['title', 'description']
             ]
         ];
     }

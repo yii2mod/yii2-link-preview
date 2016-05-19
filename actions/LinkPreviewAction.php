@@ -5,7 +5,6 @@ namespace yii2mod\linkpreview\actions;
 use Yii;
 use yii\base\Action;
 use yii\web\Response;
-use yii2mod\linkpreview\Crawler;
 use yii2mod\linkpreview\models\LinkPreviewModel;
 
 /**
@@ -15,8 +14,14 @@ use yii2mod\linkpreview\models\LinkPreviewModel;
 class LinkPreviewAction extends Action
 {
     /**
-     * Template view path
-     * @var string
+     * @var array crawler config
+     */
+    public $crawlerConfig = [
+        'class' => 'yii2mod\linkpreview\Crawler'
+    ];
+
+    /**
+     * @var string Template view path
      */
     public $view = '@vendor/yii2mod/yii2-link-preview/views/template';
 
@@ -26,16 +31,15 @@ class LinkPreviewAction extends Action
     public function run()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
+
         $linkPreviewModel = new LinkPreviewModel();
-        $content = Yii::$app->request->post('content');
-        $linkPreview = new Crawler([
-            'content' => $content
-        ]);
-        $result = $linkPreview->getPagePreview();
+        $crawler = Yii::createObject($this->crawlerConfig);
+        $crawler->content = Yii::$app->request->post('content');
+        $pageInfo = $crawler->getPageInfo();
         $pjaxContainerId = str_replace('#', '', Yii::$app->request->post('_pjax'));
 
         return $this->controller->render($this->view, [
-            'result' => $result,
+            'pageInfo' => $pageInfo,
             'linkPreviewModel' => $linkPreviewModel,
             'pjaxContainerId' => $pjaxContainerId
         ]);

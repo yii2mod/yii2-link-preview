@@ -12,7 +12,8 @@
     ],
     "require": {
         "yiisoft/yii2": ">=2.0.4",
-        "symfony/dom-crawler": "~2.4,!=2.4.5"
+        "embed/embed": "^2.6",
+        "yii2mod/yii2-behaviors": "*"
     },
     "autoload": {
         "psr-4": {

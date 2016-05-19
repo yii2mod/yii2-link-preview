@@ -14,6 +14,7 @@
 #preview-url {
     font-size: 1em;
     color: #bbb;
+    text-transform: uppercase;
 }
 
 #preview-title {
@@ -40,9 +41,23 @@
     }
 }
 
-@media only screen and (min-width: 992px) {
+@media (max-width: 475px) {
+    #preview-description {
+        display: none !important;
+    }
+
+    #preview-image {
+        max-width: 100px;
+    }
+}
+
+@media (min-width: 475px) {
     #preview-image {
         max-width: 180px;
+    }
+
+    #preview-description {
+        display: block;
     }
 }
 
