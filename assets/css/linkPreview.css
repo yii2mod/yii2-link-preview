@@ -68,3 +68,28 @@
     width: 15px;
     cursor: pointer;
 }
+
+.preview-link-container {
+    display: block;
+    position: relative;
+}
+
+.video-play-inline {
+    background-size: auto;
+    background: rgba(0, 0, 0, .5) url('../img/video_play.png') no-repeat 0 0;
+    height: 54px;
+    width: 54px;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.video-play-inline:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}

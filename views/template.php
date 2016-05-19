@@ -14,9 +14,14 @@ use yii\widgets\Pjax;
     <div class="preview-container">
         <div class="media">
             <span title="Close" id="close-preview" class="close-preview-btn"></span>
-            <?php if ($pageInfo->getImage()): ?>
-                <?php echo Html::img($pageInfo->getImage(), ['id' => 'preview-image', 'class' => 'pull-left']); ?>
-            <?php endif; ?>
+            <div class="pull-left">
+                <a href="<?php echo $pageInfo->getUrl(); ?>" class="preview-link-container" target="_blank">
+                    <?php echo Html::img($pageInfo->getImage(), ['id' => 'preview-image']); ?>
+                    <?php if ($pageInfo->getType() === 'video'): ?>
+                        <i class="video-play-inline"></i>
+                    <?php endif; ?>
+                </a>
+            </div>
             <div class="media-body fnt-smaller">
                 <h4 class="media-heading" id="preview-title">
                     <?php echo Html::a($pageInfo->getTitle(), $pageInfo->getUrl(), ['target' => '_blank']); ?>
