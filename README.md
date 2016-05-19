@@ -85,6 +85,10 @@ $linkPreviewId = LinkPreviewModel::saveAndGetId(Yii::$app->request->post());
 
 ```
 
-#### GitHub Preview
+#### GitHub Preview Example
 -----
-![Alt text](http://res.cloudinary.com/zfort/image/upload/v1436190465/Preview.png "Example preview")
+![Alt text](http://res.cloudinary.com/zfort/image/upload/v1436190465/Preview.png "GitHub Preview Example")
+
+#### Video Link Preview Example
+-----
+![Alt text](http://res.cloudinary.com/zfort/image/upload/v1463675006/Youtube%20link%20preview.png "Video Link Preview Example")
