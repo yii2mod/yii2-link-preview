@@ -50,7 +50,41 @@ echo LinkPreview::widget([
         'previewActionUrl' => \yii\helpers\Url::to(['link-preview'])
     ],
 ])
-```  
-#### Example preview
+``` 
+**Example of usage with the ActiveForm and saving the page info**
+
+1) Create the basic form in the view:
+```php
+<?php $form = \yii\widgets\ActiveForm::begin() ?>
+    <div class="form-group">
+        <label for="preview">Preview</label>
+        <input name="preview" class="form-control" id="preview" placeholder="Preview">
+    </div>
+    <?php echo \yii2mod\linkpreview\LinkPreview::widget([
+        'selector' => '#preview',
+        'clientOptions' => [
+            'previewActionUrl' => \yii\helpers\Url::to(['link-preview'])
+        ],
+    ]) ?>
+    <div class="form-group">
+        <?= \yii\helpers\Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
+    </div>
+<?php \yii\widgets\ActiveForm::end() ?>
+```
+
+2) Add the following code to your action for the saving page info:
+```php
+$model = new LinkPreviewModel();
+if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+    $model->save();
+}
+
+// or the short version 
+
+$linkPreviewId = LinkPreviewModel::saveAndGetId(Yii::$app->request->post());
+
+```
+
+#### GitHub Preview
 -----
 ![Alt text](http://res.cloudinary.com/zfort/image/upload/v1436190465/Preview.png "Example preview")
