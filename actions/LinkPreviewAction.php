@@ -21,7 +21,7 @@ class LinkPreviewAction extends Action
     ];
 
     /**
-     * @var string Template view path
+     * @var string template view path
      */
     public $view = '@vendor/yii2mod/yii2-link-preview/views/template';
 
@@ -44,5 +44,4 @@ class LinkPreviewAction extends Action
             'pjaxContainerId' => $pjaxContainerId
         ]);
     }
-
-} 
+}
