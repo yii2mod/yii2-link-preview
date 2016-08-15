@@ -22,8 +22,7 @@ use yii2mod\behaviors\PurifyBehavior;
 class LinkPreviewModel extends ActiveRecord
 {
     /**
-     * Declares the name of the database table associated with this AR class.
-     * @return string the table name
+     * @inheritdoc
      */
     public static function tableName()
     {
@@ -31,12 +30,12 @@ class LinkPreviewModel extends ActiveRecord
     }
 
     /**
-     * Returns the validation rules for attributes.
-     * @return array validation rules
+     * @inheritdoc
      */
     public function rules()
     {
         return [
+            [['title', 'description', 'url', 'canonicalUrl', 'image', 'code'], 'trim'],
             [['url', 'canonicalUrl'], 'required'],
             [['image', 'title', 'description', 'code'], 'string'],
             [['createdAt', 'updatedAt'], 'integer'],
@@ -45,8 +44,7 @@ class LinkPreviewModel extends ActiveRecord
     }
 
     /**
-     * Returns the attribute labels.
-     * @return array attribute labels (name => label)
+     * @inheritdoc
      */
     public function attributeLabels()
     {
@@ -64,8 +62,7 @@ class LinkPreviewModel extends ActiveRecord
     }
 
     /**
-     * Return list of behaviors
-     * @return array
+     * @inheritdoc
      */
     public function behaviors()
     {
@@ -83,16 +80,19 @@ class LinkPreviewModel extends ActiveRecord
     }
 
     /**
-     * Save link preview model and return id
-     * @param $post
+     * Save model and return id
+     *
+     * @param array $params
      * @return integer|null
      */
-    public static function saveAndGetId($post)
+    public static function saveAndGetId($params)
     {
         $model = new static;
-        if ($model->load($post) && $model->save()) {
+
+        if ($model->load($params) && $model->save()) {
             return $model->id;
         }
+
         return null;
     }
 }

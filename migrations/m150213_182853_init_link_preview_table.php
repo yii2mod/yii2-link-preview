@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 /**
@@ -20,15 +19,15 @@ class m150213_182853_init_link_preview_table extends Migration
         }
         
         $this->createTable('{{%LinkPreview}}', [
-            'id' => Schema::TYPE_PK,
-            'title' => Schema::TYPE_TEXT,
-            'description' => Schema::TYPE_TEXT,
-            'url' => Schema::TYPE_STRING . ' NOT NULL',
-            'canonicalUrl' => Schema::TYPE_STRING . ' NOT NULL',
-            'image' => Schema::TYPE_TEXT,
-            'code' => Schema::TYPE_TEXT,
-            'createdAt' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'updatedAt' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'id' => $this->primaryKey(),
+            'title' => $this->text(),
+            'description' => $this->text(),
+            'url' => $this->string()->notNull(),
+            'canonicalUrl' => $this->string()->notNull(),
+            'image' => $this->text(),
+            'code' => $this->text(),
+            'createdAt' => $this->integer()->notNull(),
+            'updatedAt' => $this->integer()->notNull(),
         ], $tableOptions);
 
     }

@@ -2,7 +2,7 @@
     "name": "yii2mod/yii2-link-preview",
     "description": "LinkPreview widget renders page preview",
     "type": "yii2-extension",
-    "keywords": ["yii2", "extension"],
+    "keywords": ["page preview", "link preview", "preview"],
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": ">=2.0.5",
+        "yiisoft/yii2": ">=2.0.8",
         "embed/embed": "^2.6",
         "yii2mod/yii2-behaviors": "*"
     },

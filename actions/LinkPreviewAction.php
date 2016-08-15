@@ -32,7 +32,7 @@ class LinkPreviewAction extends Action
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        $linkPreviewModel = new LinkPreviewModel();
+        $linkPreviewModel = Yii::createObject(LinkPreviewModel::className());
         $crawler = Yii::createObject($this->crawlerConfig);
         $crawler->content = Yii::$app->request->post('content');
         $pageInfo = $crawler->getPageInfo();
