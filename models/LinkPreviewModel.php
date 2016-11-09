@@ -26,7 +26,7 @@ class LinkPreviewModel extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'LinkPreview';
+        return '{{%link_preview}}';
     }
 
     /**
