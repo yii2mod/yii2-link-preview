@@ -1,6 +1,6 @@
 <?php
 
-use app\components\Migration;
+use yii\db\Migration;
 
 class m161109_110549_rename_link_preview_table extends Migration
 {
