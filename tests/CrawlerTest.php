@@ -6,6 +6,7 @@ use yii2mod\linkpreview\Crawler;
 
 /**
  * Class CrawlerTest
+ *
  * @package yii2mod\linkpreview\tests
  */
 class CrawlerTest extends TestCase

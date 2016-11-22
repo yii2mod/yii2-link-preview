@@ -9,6 +9,7 @@ use yii2mod\linkpreview\models\LinkPreviewModel;
 
 /**
  * Class LinkPreviewAction
+ *
  * @package yii2mod\linkpreview\actions
  */
 class LinkPreviewAction extends Action
@@ -17,7 +18,7 @@ class LinkPreviewAction extends Action
      * @var array crawler config
      */
     public $crawlerConfig = [
-        'class' => 'yii2mod\linkpreview\Crawler'
+        'class' => 'yii2mod\linkpreview\Crawler',
     ];
 
     /**
@@ -41,7 +42,7 @@ class LinkPreviewAction extends Action
         return $this->controller->render($this->view, [
             'pageInfo' => $pageInfo,
             'linkPreviewModel' => $linkPreviewModel,
-            'pjaxContainerId' => $pjaxContainerId
+            'pjaxContainerId' => $pjaxContainerId,
         ]);
     }
 }

@@ -2,8 +2,8 @@
 
 namespace yii2mod\linkpreview\tests;
 
-use yii\helpers\ArrayHelper;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii2mod\linkpreview\tests\data\Controller;
 
 /**
@@ -25,6 +25,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * Populates Yii::$app with a new application
      * The application will be destroyed on tearDown() automatically.
+     *
      * @param array $config The application configuration, if needed
      * @param string $appClass name of the application class to create
      */
@@ -41,7 +42,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
                 ],
                 'request' => [
                     'hostInfo' => 'http://domain.com',
-                    'scriptUrl' => 'index.php'
+                    'scriptUrl' => 'index.php',
                 ],
             ],
         ], $config));
@@ -64,8 +65,9 @@ class TestCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param array $config controller config.
-     * @return Controller controller instance.
+     * @param array $config controller config
+     *
+     * @return Controller controller instance
      */
     protected function createController($config = [])
     {

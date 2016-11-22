@@ -2,7 +2,6 @@
 
 namespace yii2mod\linkpreview;
 
-use Yii;
 use yii\base\InvalidConfigException;
 use yii\base\Widget;
 use yii\helpers\Json;
@@ -36,6 +35,7 @@ class LinkPreview extends Widget
 
     /**
      * Template view name
+     *
      * @var string
      */
     public $view = 'template';
@@ -62,14 +62,15 @@ class LinkPreview extends Widget
             throw new InvalidConfigException("The 'pjaxContainerId' property is required.");
         }
         echo $this->render($this->view, [
-            'pjaxContainerId' => $this->pjaxContainerId
+            'pjaxContainerId' => $this->pjaxContainerId,
         ]);
         parent::init();
     }
 
     /**
      * Executes the widget.
-     * @return string the result of widget execution to be outputted.
+     *
+     * @return string the result of widget execution to be outputted
      */
     public function run()
     {
@@ -82,12 +83,13 @@ class LinkPreview extends Widget
 
     /**
      * Get client options
+     *
      * @return string
      */
     protected function getClientOptions()
     {
         $this->clientOptions['pjaxContainer'] = '#' . $this->pjaxContainerId;
+
         return Json::encode($this->clientOptions);
     }
-
 }

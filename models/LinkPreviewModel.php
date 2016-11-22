@@ -9,15 +9,15 @@ use yii2mod\behaviors\PurifyBehavior;
 /**
  * This is the model class for table "LinkPreview".
  *
- * @property integer $id
+ * @property int $id
  * @property string $title
  * @property string $description
  * @property string $url
  * @property string $canonicalUrl
  * @property string $image
  * @property string $code
- * @property integer $createdAt
- * @property integer $updatedAt
+ * @property int $createdAt
+ * @property int $updatedAt
  */
 class LinkPreviewModel extends ActiveRecord
 {
@@ -39,7 +39,7 @@ class LinkPreviewModel extends ActiveRecord
             [['url', 'canonicalUrl'], 'required'],
             [['image', 'title', 'description', 'code'], 'string'],
             [['createdAt', 'updatedAt'], 'integer'],
-            [['url', 'canonicalUrl'], 'string', 'max' => 255]
+            [['url', 'canonicalUrl'], 'string', 'max' => 255],
         ];
     }
 
@@ -70,12 +70,12 @@ class LinkPreviewModel extends ActiveRecord
             'timestamp' => [
                 'class' => 'yii\behaviors\TimestampBehavior',
                 'createdAtAttribute' => 'createdAt',
-                'updatedAtAttribute' => 'updatedAt'
+                'updatedAtAttribute' => 'updatedAt',
             ],
             'purify' => [
                 'class' => PurifyBehavior::className(),
-                'attributes' => ['title', 'description']
-            ]
+                'attributes' => ['title', 'description'],
+            ],
         ];
     }
 
@@ -83,11 +83,12 @@ class LinkPreviewModel extends ActiveRecord
      * Save model and return id
      *
      * @param array $params
-     * @return integer|null
+     *
+     * @return int|null
      */
     public static function saveAndGetId($params)
     {
-        $model = new static;
+        $model = new static();
 
         if ($model->load($params) && $model->save()) {
             return $model->id;

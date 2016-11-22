@@ -17,7 +17,7 @@ class m150213_182853_init_link_preview_table extends Migration
         if ($this->db->driverName === 'mysql') {
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
-        
+
         $this->createTable('{{%LinkPreview}}', [
             'id' => $this->primaryKey(),
             'title' => $this->text(),
@@ -29,7 +29,6 @@ class m150213_182853_init_link_preview_table extends Migration
             'createdAt' => $this->integer()->notNull(),
             'updatedAt' => $this->integer()->notNull(),
         ], $tableOptions);
-
     }
 
     /**

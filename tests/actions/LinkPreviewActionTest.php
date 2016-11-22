@@ -8,18 +8,22 @@ use yii2mod\linkpreview\tests\TestCase;
 
 /**
  * Class LinkPreviewActionTest
+ *
  * @package yii2mod\linkpreview\tests\actions
  */
 class LinkPreviewActionTest extends TestCase
 {
     /**
      * Runs the action.
+     *
      * @param array $config
-     * @return array|\yii\web\Response response.
+     *
+     * @return array|\yii\web\Response response
      */
     protected function runAction(array $config = [])
     {
         $action = new LinkPreviewAction('link-preview', $this->createController(), $config);
+
         return $action->run();
     }
 

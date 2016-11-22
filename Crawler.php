@@ -11,6 +11,7 @@ use yii\helpers\ArrayHelper;
 
 /**
  * Class Crawler
+ *
  * @package yii2mod\linkpreview
  */
 class Crawler extends Object
@@ -32,7 +33,9 @@ class Crawler extends Object
 
     /**
      * Return page info
+     *
      * @return array|Adapter
+     *
      * @throws InvalidConfigException
      */
     public function getPageInfo()
@@ -55,6 +58,7 @@ class Crawler extends Object
 
     /**
      * Get link from content
+     *
      * @return mixed|null
      */
     protected function getUrlFromContent()

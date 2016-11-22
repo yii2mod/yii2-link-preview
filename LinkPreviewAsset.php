@@ -6,6 +6,7 @@ use yii\web\AssetBundle;
 
 /**
  * Class LinkPreviewAsset
+ *
  * @package yii2mod\linkpreview
  */
 class LinkPreviewAsset extends AssetBundle
@@ -35,5 +36,4 @@ class LinkPreviewAsset extends AssetBundle
     public $depends = [
         'yii\bootstrap\BootstrapPluginAsset',
     ];
-
 }
