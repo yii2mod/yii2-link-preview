@@ -14,11 +14,12 @@ use yii\helpers\Json;
  *      public function actions()
  *      {
  *          return [
- *              'link-preview' => LinkPreviewAction::className()
+ *              'link-preview' => \yii2mod\linkpreview\actions\LinkPreview::className()
  *          ];
  *      }
+ *
  * 2. Add widget to your page as follows:
- *      echo \app\components\preview\LinkPreview::widget([
+ *      echo \yii2mod\linkpreview\LinkPreview::widget([
  *          'selector' => '#your-input-id or .someclass',
  *          'clientOptions' => [
  *              'previewActionUrl' => \yii\helpers\Url::to(['link-preview'])
@@ -55,16 +56,17 @@ class LinkPreview extends Widget
      */
     public function init()
     {
+        parent::init();
+
         if (empty($this->id)) {
             throw new InvalidConfigException("The 'id' property is required.");
         }
+
         if (empty($this->pjaxContainerId)) {
             throw new InvalidConfigException("The 'pjaxContainerId' property is required.");
         }
-        echo $this->render($this->view, [
-            'pjaxContainerId' => $this->pjaxContainerId,
-        ]);
-        parent::init();
+
+        $this->registerAssets();
     }
 
     /**
@@ -74,11 +76,20 @@ class LinkPreview extends Widget
      */
     public function run()
     {
+        return $this->render($this->view, [
+            'pjaxContainerId' => $this->pjaxContainerId,
+        ]);
+    }
+
+    /**
+     * Register assets
+     */
+    protected function registerAssets()
+    {
         $view = $this->getView();
         LinkPreviewAsset::register($view);
         $options = $this->getClientOptions();
         $view->registerJs("$('{$this->selector}').linkPreview({$options});", $view::POS_END);
-        parent::run();
     }
 
     /**

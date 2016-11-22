@@ -10,14 +10,14 @@ use yii\widgets\Pjax;
 
 ?>
 <?php Pjax::begin(['timeout' => 5000, 'enablePushState' => false, 'id' => $pjaxContainerId]); ?>
-<?php if (!empty($pageInfo)): ?>
+<?php if (!empty($pageInfo)) : ?>
     <div class="preview-container">
         <div class="media">
             <span title="Close" id="close-preview" class="close-preview-btn"></span>
             <div class="pull-left">
                 <a href="<?php echo $pageInfo->getUrl(); ?>" class="preview-link-container" target="_blank">
                     <?php echo Html::img($pageInfo->getImage(), ['id' => 'preview-image']); ?>
-                    <?php if ($pageInfo->getType() === 'video'): ?>
+                    <?php if ($pageInfo->getType() === 'video') : ?>
                         <i class="video-play-inline"></i>
                     <?php endif; ?>
                 </a>
